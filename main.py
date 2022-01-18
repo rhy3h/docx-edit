@@ -25,8 +25,10 @@ class MainWindow(QMainWindow):
         if files:
             for file in files:
                 if file not in self.words_list:
+                    path = pathlib.Path(file)
+                    file_name = path.name
                     self.words_list.append(file)
-                    self.ui.wordList.addItem(file)
+                    self.ui.wordList.addItem(file_name)
                     
     def replaceBtn_clicked(self):
         for file_full_path in self.words_list:
